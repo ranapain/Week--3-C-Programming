@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+    int data;
+    struct Node* next;
+};
+void insertAtBeginning(struct Node** head, int data) {
+    struct Node* newNode = malloc(sizeof(struct Node));
+    newNode->data = data;
+    newNode->next = *head;
+    *head = newNode;
+}
+void printList(struct Node* head) {
+    while (head != NULL) {
+        printf("%d -> ", head->data);
+        head = head->next;
+    }
+    printf("NULL\n");
+}
+
+int main() {
+    struct Node* head = NULL;
+    insertAtBeginning(&head, 10);
+    insertAtBeginning(&head, 20);
+    insertAtBeginning(&head, 30);
+    printList(head);
+    return 0;
+}
