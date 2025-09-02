@@ -1,0 +1,7 @@
+int search(struct Node* head, int key) {
+    while (head != NULL) {
+        if (head->data == key) return 1;
+        head = head->next;
+    }
+    return 0;
+}
